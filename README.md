@@ -111,6 +111,8 @@ Deployment requires a developer-enabled Samsung TV, Tizen CLI tools and a valid 
 
 The root `Dockerfile` builds the backend with its own minimal dependency set. For a Git-connected service, use the repository root and root Dockerfile; configure the health check as `/api/health`. Preserve the `/data` volume when using persistent flight-story history.
 
+The production `flight-api` service deploys automatically from `eliast/bos42` on `main`. Railway watches `server/`, `shared/`, `deploy/railway/`, `Dockerfile` and `.dockerignore`; changes limited to the interface, iOS, Tizen or documentation skip deployment. Keep provider credentials in Railway service variables. The existing `/data` history volume stays attached across deployments.
+
 For an explicit API-only CLI upload:
 
 ```sh
