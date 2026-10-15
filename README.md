@@ -23,6 +23,11 @@ A jet turns onto final. A ferry crosses the harbor. The next arrival comes into 
 
 **BOS/42 makes the traffic outside your window something you can explore.** Airline-colored aircraft move over a 3D map of Boston. Tap a flight to follow it, watch the instruments, or let Director find the next scene.
 
+<p align="center">
+  <img src="docs/assets/bos42-live-follow.jpg" alt="Live Follow view tracking a JetBlue Airbus A220 over Boston Logan, with aircraft specifications, flight gauges and harbor weather." width="100%">
+  <br><sub>Live Follow view over Logan. Actual app capture; aircraft models and motion are illustrative.</sub>
+</p>
+
 | Mode | What you get |
 | --- | --- |
 | **Window** | A fixed viewpoint toward Logan, with adjustable direction, height, lens and perspective. |
