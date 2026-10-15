@@ -1,0 +1,20 @@
+.observation-panels>.flight-card.vessel-card{left:14px;top:auto;bottom:14px;transform:none;max-width:calc(100% - 28px)}
+.vessel-card .vessel-name{font:700 32px/.98 "Barlow Condensed","Arial Narrow",sans-serif;margin:9px 0 1px;overflow-wrap:anywhere;letter-spacing:.3px}
+.vessel-card .vessel-status{font:11px/1.4 "IBM Plex Mono",monospace;color:#c5dadc;margin-top:9px}
+.vessel-card .route-direction{display:block;margin-bottom:4px;font-size:8px}
+.vessel-card .route-cities{font-size:20px}
+.vessel-labels{position:absolute;inset:0;pointer-events:none;z-index:3}
+.vessel-label{position:absolute;left:0;top:0;min-height:44px;max-width:170px;padding:6px 9px;border:1px solid #8caab855;border-left:3px solid var(--vessel-color);border-radius:7px;background:#0e2632e8;color:#e2f0ed;pointer-events:auto;box-shadow:0 3px 12px #0003;text-align:left;white-space:nowrap}
+.vessel-label strong{display:block;font:600 11px/1.4 "IBM Plex Mono",monospace;overflow:hidden;text-overflow:ellipsis}
+.vessel-label small{display:block;font:9px/1.4 "IBM Plex Mono",monospace;color:#a8c6d0}
+.vessel-label.selected{border-color:var(--vessel-color);background:#183842f2}
+.vessel-label[hidden]{display:none}
+.cockpit-overlay.vessel-instruments{width:240px}
+.vessel-instruments .instrument-bank{grid-template-columns:repeat(2,minmax(0,1fr))}
+.harbor-board .board-flight strong,.harbor-board .board-route strong{overflow:hidden;text-overflow:ellipsis}
+.harbor-board .board-phase strong{white-space:normal}
+.harbor-status-line{color:#aac6d0;font:10px/1.4 "IBM Plex Mono",monospace;margin-top:6px}
+@media(max-width:1100px){.cockpit-overlay.vessel-instruments{width:208px}}
+@media(max-width:950px){.board-tabs button{gap:5px;padding:0 9px}.board-search{min-width:150px}.vessel-card .vessel-name{font-size:28px}}
+
+.vessel-label.stale{border-style:dashed;opacity:.72}

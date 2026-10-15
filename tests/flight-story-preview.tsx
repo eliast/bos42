@@ -1,0 +1,14 @@
+import React,{useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import {JourneyPanel} from '../src/FlightTimeline';
+import {Spotter} from '../src/Spotter';
+import {normalizeJourney} from '../shared/journey.mjs';
+import {demoFeed} from '../src/demo';
+import {DEFAULT_PREFERENCES} from '../src/config';
+import '../src/styles.css';
+const now=Date.now(),sample=demoFeed().aircraft.find(a=>a.callsign==='BAW213')!;
+const iso=(minutes:number)=>new Date(now+minutes*60000).toISOString();
+const flight={ident:sample.callsign,fa_flight_id:'PREVIEW',registration:sample.registration,origin:{code_icao:'EGLL',code_iata:'LHR',city:'London',timezone:'Europe/London'},destination:{code_icao:'KBOS',code_iata:'BOS',city:'Boston',timezone:'America/New_York'},scheduled_out:iso(-420),actual_out:iso(-392),actual_off:iso(-378),scheduled_on:iso(2),estimated_on:iso(6),scheduled_in:iso(12),estimated_in:iso(15)};
+const journey=normalizeJourney({flights:[flight,...Array.from({length:7},(_,i)=>({...flight,fa_flight_id:`old${i}`,actual_off:iso(-1440*(i+1)),actual_on:iso(-1440*(i+1)+380)}))]},sample,now);
+function Preview(){const[show,setShow]=useState(true),[missing,setMissing]=useState(false),[clock,setClock]=useState(now);return <div className="app" style={{'--accent':sample.color} as React.CSSProperties}><main className="airspace"><p style={{padding:14,color:'#b0d0d0'}}>TEST PREVIEW · Simulated schedule</p><button style={{position:'absolute',top:50,left:14,minHeight:44}} onClick={()=>{setShow(true);setMissing(v=>!v);}}>Toggle missing schedule</button><button style={{position:"absolute",top:104,left:14,minHeight:44}} onClick={()=>{setShow(false);setClock(now+11000);}}>Show spotting preview</button>{show&&<JourneyPanel aircraft={{...sample,observedAt:clock}} route={null} now={clock} result={{status:missing?'unconfigured':'found',journey:missing?null:journey,source:'Test fixture',retrievedAt:now}} onClose={()=>setShow(false)}/>}<Spotter aircraft={demoFeed().aircraft.map(a=>({...a,observedAt:clock}))} home={DEFAULT_PREFERENCES.window} now={clock} selectedId={null} enabled visible={!show} sound={false} view={{bearing:79,aligned:true}} onFollow={()=>setShow(true)}/></main><footer className="app-footer">DEVELOPMENT FIXTURE · not a live flight</footer></div>};
+createRoot(document.getElementById('root')!).render(<Preview/>);

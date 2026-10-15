@@ -1,0 +1,17 @@
+{
+  "name": "bos42-flight-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "egm96-universal": "1.1.1",
+    "express": "5.2.1",
+    "ws": "^8.22.0"
+  }
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+  <title id="title">BOS/42 — Boston, in motion.</title>
+  <desc id="desc">An illustrated airport display with a yellow BOS/42 wordmark, radar rings, an aircraft approach trail, and a dark Boston skyline.</desc>
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1"><stop stop-color="#101b24"/><stop offset="1" stop-color="#172f39"/></linearGradient>
+    <linearGradient id="trail"><stop stop-color="#79d4c5" stop-opacity="0"/><stop offset="1" stop-color="#79d4c5"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#9bb6bd" stroke-opacity=".07"/></pattern>
+    <clipPath id="bounds"><rect width="1440" height="520" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#bounds)">
+    <rect width="1440" height="520" fill="url(#sky)"/><rect width="1440" height="520" fill="url(#grid)"/>
+    <g fill="none" stroke="#79d4c5" opacity=".12"><circle cx="1100" cy="220" r="100"/><circle cx="1100" cy="220" r="180"/><circle cx="1100" cy="220" r="260"/><path d="M800 220h600M1100 -60v560"/></g>
+    <g fill="#09151d" opacity=".8"><path d="M0 430h63v-38h28v-35h24v73h40v-82h46v82h26V318h49v112h28V274h51v156h31V230h34v-14h12v14h34v200h27V342h35v88h33v-61h65v61h36v-36h46v36h36v-72h29v72h57v90H0Z"/><path d="M730 470h710v50H700Z"/></g>
+    <path d="M762 425C837 416 839 292 913 288S1006 337 1075 292s75-89 121-128" fill="none" stroke="url(#trail)" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(1196 164) rotate(43)" fill="#f6cb35"><path d="M0-28 5-13 6-3 29 10v6L6 8 5 22l8 6v4L0 28l-13 4v-4l8-6-1-14-23 8v-6L-6-3-5-13Z"/></g>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <g font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="3"><circle cx="65" cy="65" r="4" fill="#79d4c5"/><text x="82" y="70" fill="#b9d6d8">BOSTON LOGAN / KBOS</text><text x="1378" y="70" fill="#b9d6d8" text-anchor="end">AIR + HARBOR</text></g>
+      <rect x="60" y="112" width="160" height="28" rx="4" fill="#f6cb35"/><text x="74" y="131" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" letter-spacing="2" fill="#101b24">YOUR AIRSPACE</text>
+      <text x="54" y="276" fill="#f6cb35" font-size="140" font-weight="900" letter-spacing="-9">BOS/42</text>
+      <text x="62" y="333" fill="#f3f6f4" font-size="34" font-weight="600" letter-spacing="-.8">Boston, in motion.</text>
+      <text x="64" y="374" fill="#a9bfc5" font-size="18">Live aircraft. Harbor traffic. A window worth watching.</text>
+      <g font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="2"><text x="64" y="477" fill="#e0ecea">iPAD / BROWSER / SAMSUNG TV</text><text x="1378" y="477" text-anchor="end" fill="#79d4c5">ONE SKY. THREE SCREENS.</text></g>
+      <g transform="translate(1232 221)"><rect x="-13" y="-23" width="160" height="71" rx="8" fill="#0c1a23" stroke="#557f84" stroke-opacity=".5"/><text fill="#eaf1ee" font-size="17" font-weight="bold">BOS / ARRIVAL</text><text y="25" fill="#8fb6bc" font-family="Menlo, Consolas, monospace" font-size="12">ILLUSTRATED TRACK</text></g>
+    </g>
+    <path d="M60 450h1320" stroke="#93acb6" stroke-opacity=".2"/>
+  </g>
+</svg>

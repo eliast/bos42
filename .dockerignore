@@ -1,0 +1,14 @@
+# Only the API and its runtime dependencies enter the Railway Docker context.
+**
+!Dockerfile
+!server/
+!server/*.mjs
+!shared/
+!shared/aviation.mjs
+!shared/marine.mjs
+!shared/journey.mjs
+!shared/approaches.mjs
+!deploy/
+!deploy/railway/
+!deploy/railway/package.json
+!deploy/railway/package-lock.json

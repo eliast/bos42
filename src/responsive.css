@@ -1,0 +1,102 @@
+/* Keep every panel in its original corner. Reserve the same clear center lane
+   for gauges whether the radio is open or closed. */
+.observation-panels{display:contents}
+.airspace{--card-edge:clamp(8px,1.1vw,14px);--card-gap:12px;--left-card-width:clamp(112px,23vw,290px);--right-card-width:clamp(112px,24vw,310px);--top-card-offset:14px;--center-lane:calc(100% - 2 * (max(var(--left-card-width),var(--right-card-width)) + var(--card-edge) + var(--card-gap)))}
+.app .left-flight-panels{left:var(--card-edge);top:var(--top-card-offset);width:var(--left-card-width);max-height:calc((100% - var(--top-card-offset) - var(--card-edge) - 16px)/2);overflow-y:auto;scrollbar-width:thin}
+.app .left-flight-panels>.flight-card{width:100%;max-width:none;margin:0}
+.app .follow-stats-card,.app .observation-panels>.vessel-card,.app .approach-view-panel{left:var(--card-edge);top:auto;bottom:var(--card-edge);width:var(--left-card-width);max-width:none;max-height:calc((100% - var(--top-card-offset) - var(--card-edge) - 16px)/2);transform:none;overflow-y:auto;scrollbar-width:thin}
+.app .coastal-weather{right:var(--card-edge);top:var(--top-card-offset);bottom:auto;width:var(--left-card-width);max-height:calc(100% - var(--top-card-offset) - 160px);overflow-y:auto;pointer-events:auto;scrollbar-width:thin}
+.app .instrument-dock>.atc-panel{right:var(--card-edge);bottom:var(--card-edge);width:var(--right-card-width);max-width:none}
+.app .instrument-dock>.cockpit-overlay{left:50%;bottom:var(--card-edge);width:min(488px,var(--center-lane));max-width:var(--center-lane);transform:translateX(-50%)}
+.app .instrument-dock>.cockpit-overlay.vessel-instruments{width:min(240px,var(--center-lane))}
+.app .follow-stats-card header{flex-wrap:wrap;gap:4px 8px}
+.app .follow-stats-card header>div,.app .flight-identity{min-width:0}
+.app .vessel-name,.app .route-cities{overflow-wrap:anywhere}
+@media(min-width:1600px){.app .instrument-dock>.cockpit-overlay{width:min(568px,var(--center-lane))}.app .instrument-dock>.cockpit-overlay.vessel-instruments{width:min(240px,var(--center-lane))}}
+@media(max-width:1100px){
+  .app .flight-card,.app .follow-stats-card,.app .coastal-weather,.app .approach-view-panel{padding:clamp(7px,1.1vw,12px)}
+  .app .landing-tail{font-size:clamp(23px,4.3vw,42px);overflow-wrap:anywhere}
+  .app .landing-aircraft{gap:4px;margin-bottom:8px;padding-bottom:8px}
+  .app .landing-operator,.app .landing-distance,.app .arrival-queue-empty{font-size:clamp(8px,1vw,11px)}
+  .app .arrival-queue-heading{gap:4px}
+  .app .arrival-queue-heading small{font-size:clamp(6px,.85vw,9px)}
+  .app .arrival-queue-row{gap:4px;min-height:32px}
+  .app .arrival-tail{font-size:clamp(10px,1.3vw,14px)}
+  .app .arrival-distance,.app .arrival-time{font-size:clamp(7px,.95vw,10px)}
+  .app .follow-stats-card h2{font-size:clamp(14px,1.9vw,20px)}
+  .app .follow-stats-card dd,.app .flight-story{font-size:clamp(8px,1vw,10px)}
+  .app .follow-stats-card dl{gap:7px}
+  .app .vessel-card .vessel-name{font-size:clamp(20px,2.9vw,32px)}
+  .app .vessel-card .vessel-status{font-size:clamp(8px,1vw,11px)}
+  .app .vessel-card .route-cities{font-size:clamp(14px,1.9vw,20px)}
+  .app .coastal-title{gap:5px;margin-bottom:7px}
+  .app .coastal-title strong{font-size:clamp(11px,1.5vw,16px)}
+  .app .coastal-title svg{flex:none;width:16px;height:16px}
+  .app .coastal-airport{gap:6px}
+  .app .coastal-temperature>strong{font-size:clamp(26px,3.5vw,42px)}
+  .app .coastal-temperature>span,.app .coastal-wind-main>span{font-size:11px}
+  .app .coastal-wind-main>strong{font-size:clamp(22px,3vw,34px)}
+  .app .coastal-wind-main{gap:2px;flex-wrap:wrap}
+  .app .coastal-wind-dial{width:24px;height:24px}
+  .app .coastal-label,.app .coastal-temperature>small,.app .coastal-wind>small,.app .coastal-tide,.app .coastal-alerts,.app .tide-phase{font-size:clamp(7px,.9vw,10px)}
+  .app .coastal-forecast{font-size:clamp(9px,1.1vw,12px);line-height:1.4}
+  .app .coastal-tide,.app .tide-phase,.app .tide-event-times{flex-wrap:wrap;gap:4px}
+  .app .coastal-tide small{font-size:7px}
+  .app .tide-diagram svg{height:42px}
+  .app .coastal-source,.app .tide-prediction-note,.app .tide-event-times{font-size:6px}
+  .app .atc-panel{padding:7px}
+  .app .atc-frequency{padding:5px;overflow:hidden}
+  .app .atc-frequency strong{font-size:clamp(14px,2.3vw,23px);letter-spacing:0}
+  .app .atc-frequency small{font-size:6px;margin-left:2px}
+  .app .atc-frequency>span{font-size:6px;letter-spacing:.3px}
+  .app .atc-tuning{gap:5px}
+  .app .atc-heading{gap:5px}
+  .app .atc-heading h2{font-size:8px;letter-spacing:1px}
+  .app .atc-foot{flex-wrap:wrap;font-size:6px}
+  .app .instrument figcaption{font-size:clamp(6px,.7vw,8px);letter-spacing:0;white-space:normal}
+  .app .instrument-status{font-size:6px;letter-spacing:0}
+  .app .approach-view-panel>strong{font-size:clamp(16px,2vw,24px)}
+  .app .approach-view-panel>small{font-size:7px;letter-spacing:.5px}
+  .app .approach-view-panel p{font-size:9px}
+  .app .approach-direction-buttons{gap:4px}
+  .app .approach-direction-buttons button{min-width:40px;padding:5px;font-size:9px}
+  .app .app-header{left:calc(var(--left-card-width) + var(--card-edge) + var(--card-gap));right:calc(var(--left-card-width) + var(--card-edge) + var(--card-gap))}
+  .app .app-header .header-actions,.app .app-header .header-camera-controls{gap:6px}
+  .app .app-header .header-actions button{width:44px;min-width:44px;height:44px;min-height:44px;padding:8px;flex:none}
+}
+@media(max-width:1000px){
+  .app .airspace{--top-card-offset:76px}
+  .app .app-header{left:12px;right:12px;top:12px}
+}
+@media(max-width:600px){
+  .app .follow-stats-card dl{grid-template-columns:minmax(0,1fr)}
+  .app .follow-stats-card header small,.app .follow-stats-card footer>span{font-size:7px}
+  .app .coastal-airport{grid-template-columns:minmax(0,1fr)}
+  .app .coastal-weather{max-height:calc(100% - var(--top-card-offset) - 180px)}
+  .app .atc-tuning{flex-wrap:wrap;justify-content:center}
+  .app .atc-frequency{flex-basis:100%}
+  .app .instrument-bank{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app .compass{right:calc(var(--left-card-width) + var(--card-edge) + 8px)!important}
+}
+@media(max-width:480px){
+  .app .airspace{--top-card-offset:122px;--card-gap:8px}
+  .app .app-header .header-actions{display:grid;grid-template-columns:repeat(4,44px);gap:6px 14px;width:auto}
+  .app .app-header .header-camera-controls{display:contents}
+  .app .app-header .header-actions button{order:0}
+}
+/* Traffic takes the map temporarily, including its automatic Director visit. */
+@media(max-width:1100px),(max-height:700px){
+  .app.traffic-open .observation-panels{visibility:hidden}
+  .app.traffic-open .traffic-board{top:max(68px,var(--top-card-offset));bottom:10px;left:10px;right:10px;padding:4px}
+  .app.traffic-open .board-columns,.app.traffic-open .board-row{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(45px,.6fr) minmax(0,.95fr);gap:6px}
+  .app.traffic-open .board-columns>span:nth-child(4),.app.traffic-open .board-row>.board-measure:nth-of-type(4){display:none}
+  .app.traffic-open .board-toolbar{flex-wrap:wrap}
+  .app.traffic-open .board-tabs{width:100%}
+  .app.traffic-open .board-tabs button{flex:1;min-width:0;padding:6px;font-size:9px;gap:4px}
+  .app.traffic-open .board-search{width:100%;max-width:none;min-width:0}
+  .app.traffic-open .board-flight strong,.app.traffic-open .board-route strong,.app.traffic-open .board-phase strong{overflow:hidden;text-overflow:ellipsis}
+  .app.traffic-open .board-phase strong{white-space:normal}
+}
+@media(max-width:850px){.app .follow-stats-card dl{grid-template-columns:minmax(0,1fr)}}
+.app.traffic-open .observation-panels{visibility:hidden}
+.app.traffic-open .traffic-board{bottom:12px}

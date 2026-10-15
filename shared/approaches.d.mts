@@ -1,0 +1,11 @@
+import type {Aircraft} from '../src/types';
+export type ApproachPoint={lat:number;lon:number;altitudeFt:number;at:number;ground:boolean;breakBefore?:boolean};
+export type ApproachTrack={key:string;id:string;callsign:string;label:string;color:string;points:ApproachPoint[]};
+export type ApproachHistory={windowMs:number;startedAt:number;lastObservationAt:number|null;serverTime:number;tracks:ApproachTrack[]};
+export type ApproachView={id:string;name:string;bearing:number;count:number;lastAt:number;tracks:ApproachTrack[]};
+export const APPROACH_WINDOW_MS:number;
+export function createApproachHistory(options?:{now?:()=>number;maxTracks?:number;maxPoints?:number}):{ingest(aircraft:Aircraft[],now?:number):void;snapshot(now?:number):ApproachHistory};
+export function approachViews(tracks:ApproachTrack[],now:number):ApproachView[];
+export function chooseApproachView(tracks:ApproachTrack[],now:number,seen?:Map<string,number>):ApproachView|null;
+export function approachCamera(view:Pick<ApproachView,'bearing'>):{eye:{lat:number;lon:number;altitudeM:number};target:{lat:number;lon:number;altitudeM:number}};
+export function approachSegments(tracks:ApproachTrack[],now:number):{a:ApproachPoint;b:ApproachPoint;color:string;opacity:number}[];
