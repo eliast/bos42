@@ -7,6 +7,17 @@ import { spawnSync } from 'node:child_process';
 import { deploymentEnv, clientBuildEnv, railwayArgs } from '../scripts/deploy-config.mjs';
 
 async function fixture(t) {
+  // Vite intentionally reads process.env even when helper overrides are empty.
+  // Keep tests independent of API URLs configured by CI or a developer shell.
+  const names = ['API_BASE_URL', 'VITE_API_BASE_URL', 'APPLE_TEAM_ID'];
+  const previous = Object.fromEntries(names.map(name => [name, process.env[name]]));
+  for (const name of names) delete process.env[name];
+  t.after(() => {
+    for (const name of names) {
+      if (previous[name] === undefined) delete process.env[name];
+      else process.env[name] = previous[name];
+    }
+  });
   const root = await mkdtemp(path.join(tmpdir(), 'bos42-deploy-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   return root;
